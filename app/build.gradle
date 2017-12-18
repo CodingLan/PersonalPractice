@@ -1,19 +1,36 @@
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    // buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.lxq.personalpractice"
-        minSdkVersion 23
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+   signingConfigs{
+       sign{
+           keyAlias ''
+           keyPassword
+          storeFile ''
+           storePassword ''
+           v1SigningEnabled true
+           v2SigningEnabled true
+       }
+   }
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.sign
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            zipAlignEnabled false
+            minifyEnabled false
+            signingConfig signingConfigs.sign
         }
     }
 }
@@ -25,4 +42,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation "com.jakewharton:butterknife:${rootProject.ext.butterKnifeVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterKnifeVersion}"
 }
