@@ -1,7 +1,9 @@
+def signPath="../lxq.jks"
+
 apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    // buildToolsVersion rootProject.ext.buildToolsVersion
+     //buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.lxq.personalpractice"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -13,10 +15,10 @@ android {
 
    signingConfigs{
        sign{
-           keyAlias ''
-           keyPassword
-          storeFile ''
-           storePassword ''
+           keyAlias 'lxq'
+           keyPassword 'lanxiaoqing'
+           storeFile file(signPath)
+           storePassword 'lanxiaoqing'
            v1SigningEnabled true
            v2SigningEnabled true
        }
@@ -45,4 +47,15 @@ dependencies {
 
     implementation "com.jakewharton:butterknife:${rootProject.ext.butterKnifeVersion}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.butterKnifeVersion}"
+
+
+    //rxjava + retrofot
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-protobuf:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofitVersion"
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJavaVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttpVersion"
 }

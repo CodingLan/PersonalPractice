@@ -1,23 +1,37 @@
 package com.lxq.personalpractice;
 
+import android.Manifest;
+import android.Manifest.permission;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.widget.TextView;
 
+import butterknife.OnClick;
 import com.lxq.personalpractice.base.BaseActivity;
 
 import butterknife.BindView;
+import com.lxq.personalpractice.service.DownloadService;
+
+import java.security.Permission;
+import java.security.Permissions;
 
 /**
  * @author Created by lxq on 2017/12/18.
  */
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.tvTest)
-    TextView tvTest;
+    public static final String downloadUrl = "https://wap.58coin.com/58COIN_V1.0.0_20171208.apk";
+    public static final String filePath = Environment.getExternalStorageDirectory()
+                                                     .getPath() + "/test.apk";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        checkPermission();
     }
 
     @Override
@@ -27,6 +41,29 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        tvTest.setText("dadsdsdsa");
+    }
+
+    @OnClick ( R.id.btnForce )
+    public void forceUpdate() {
+
+    }
+
+    @OnClick ( R.id.btnNormal )
+    public void normalUpdate() {
+        DownloadService.startIntentService(MainActivity.this, downloadUrl, filePath);
+    }
+
+    private void checkPermission() {
+        if (PackageManager.PERMISSION_GRANTED != this.checkSelfPermission(
+            permission.WRITE_EXTERNAL_STORAGE)) {
+            String[] strings = new String[] {permission.WRITE_EXTERNAL_STORAGE};
+            requestPermissions(strings, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+        @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }
