@@ -10,10 +10,12 @@ import android.support.annotation.NonNull;
 import android.widget.TextView;
 
 import butterknife.OnClick;
+import com.lxq.personalpractice.Bean.DownloadBean;
 import com.lxq.personalpractice.base.BaseActivity;
 
 import butterknife.BindView;
 import com.lxq.personalpractice.service.DownloadService;
+import com.lxq.personalpractice.service.MyIntentService;
 
 import java.security.Permission;
 import java.security.Permissions;
@@ -23,7 +25,11 @@ import java.security.Permissions;
  */
 public class MainActivity extends BaseActivity {
 
-    public static final String downloadUrl = "https://wap.58coin.com/58COIN_V1.0.0_20171208.apk";
+    //public static final String downloadUrl = "https://wap.58coin.com/58COIN_V1.0.0_20171208.apk";
+    public static final String downloadUrl = "http://www.izis.cn/mygoedu/yztv_1.apk";
+
+
+
     public static final String filePath = Environment.getExternalStorageDirectory()
                                                      .getPath() + "/test.apk";
 
@@ -45,6 +51,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick ( R.id.btnForce )
     public void forceUpdate() {
+        MyIntentService.startUpdateService(MainActivity.this, downloadUrl, filePath);
 
     }
 

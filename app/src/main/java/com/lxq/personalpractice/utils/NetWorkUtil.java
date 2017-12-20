@@ -47,7 +47,7 @@ public class NetWorkUtil {
         }
     }
 
-    public static NetWorkUtil getINSTANCE() {
+    public static NetWorkUtil getDefault() {
         if (INSTANCE == null) {
             synchronized (NetWorkUtil.class) {
                 if (INSTANCE == null) {

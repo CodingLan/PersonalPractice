@@ -1,7 +1,5 @@
 package com.lxq.personalpractice.constrant;
 
-import retrofit2.http.Streaming;
-
 /**
  * Created by lxq_workspace on 2017/12/19.
  */

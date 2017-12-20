@@ -26,7 +26,8 @@ public class UpdateManager {
 
     public static void downloadApk(final Context context, final String url, final String path, final
     CompositeDisposable disposable) {
-        NetWorkUtil.getINSTANCE()
+        //NetWorkUtil.getDefault()
+        NetWork.getInstance()
                    .down(url)
                    .map(new Function<ResponseBody, BufferedSource>() {
                        @Override
@@ -54,7 +55,7 @@ public class UpdateManager {
 
                        @Override
                        public void onError(Throwable e) {
-
+                           unSubscribe(disposable);
                        }
                        @Override
                        public void onComplete() {
