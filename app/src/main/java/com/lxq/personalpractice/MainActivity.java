@@ -28,8 +28,6 @@ public class MainActivity extends BaseActivity {
     //public static final String downloadUrl = "https://wap.58coin.com/58COIN_V1.0.0_20171208.apk";
     public static final String downloadUrl = "http://www.izis.cn/mygoedu/yztv_1.apk";
 
-
-
     public static final String filePath = Environment.getExternalStorageDirectory()
                                                      .getPath() + "/test.apk";
 

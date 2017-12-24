@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.lxq.personalpractice.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.lxq.personalpractice.MainActivity">
 
     <Button
         android:id="@+id/btnForce"
         android:layout_width="wrap_content"
-        android:text="强制升级"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="强制升级" />
 
     <Button
-        android:layout_toRightOf="@id/btnForce"
         android:id="@+id/btnNormal"
         android:layout_width="wrap_content"
-        android:text="普通升级"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/btnForce"
+        android:text="普通升级" />
+
+    <com.lxq.personalpractice.view.CompositionAvaterView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
 </RelativeLayout>
