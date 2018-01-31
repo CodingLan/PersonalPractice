@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+            android:paddingMode="stack"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp">
+    <item
+        android:gravity="end|fill_vertical"
+        android:width="48dp"
+        android:drawable="@drawable/progress_bg" /><span><span><!--背景图片--> </span></span>
+    <item
+        android:drawable="@mipmap/xiajiantou"
+        android:gravity="end|center_vertical"
+        android:width="24dp"
+        android:height="24dp"
+        android:end="12dp" /><span><span><!--这里面放你要替换的图片--> </span></span>
+</layer-list>

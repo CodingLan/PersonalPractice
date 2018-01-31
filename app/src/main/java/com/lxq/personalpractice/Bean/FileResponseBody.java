@@ -1,7 +1,6 @@
 package com.lxq.personalpractice.Bean;
 
 import com.lxq.personalpractice.utils.RxBus;
-import com.lxq.personalpractice.utils.RxBusUtil;
 import io.reactivex.annotations.Nullable;
 import okhttp3.MediaType;
 import okhttp3.Response;
@@ -46,7 +45,7 @@ public class FileResponseBody extends ResponseBody {
 
                 //todo:   RxBus
                 //通过RxBus发布进度信息
-                RxBusUtil.getDefault()
+                RxBus.getDefault()
                          .send(new DownloadBean(contentLength(), bytesReaded));
 
                 return read;

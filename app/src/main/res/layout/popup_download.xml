@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="300dp"
+                android:layout_height="80dp">
+
+    <ProgressBar
+        android:max="100"
+        tools:progress="50"
+        android:id="@+id/pbDownload"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:progressDrawable="@drawable/progress_bg"
+        android:layout_marginRight="10dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_centerVertical="true"
+        android:layout_height="5dp"/>
+
+    <TextView
+        tools:text="0%"
+        android:layout_below="@id/pbDownload"
+        android:layout_marginTop="15dp"
+        android:layout_alignRight="@id/pbDownload"
+        android:id="@+id/tvProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
