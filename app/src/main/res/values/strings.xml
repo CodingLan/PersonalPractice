@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">PersonalPractice</string>
+    <string name="large_text">sdssd大是大非饭ddddddddddd滴滴答答滴滴答答滴滴答答滴滴答答滴滴答答的等待滴滴答答的滴滴答答的滴滴答答滴滴答答撒发生分身乏术的沙发上的饭撒防辐射分手的分手方式分饭撒上防辐射服撒上的生生世世生生世世是谁是否生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世生生世世是事实生生世世生生世世是</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

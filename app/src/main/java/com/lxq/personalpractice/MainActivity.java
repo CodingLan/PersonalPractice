@@ -1,6 +1,7 @@
 package com.lxq.personalpractice;
 
 import android.Manifest.permission;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,18 +11,22 @@ import android.support.v7.app.AlertDialog.Builder;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import butterknife.OnClick;
+
+import com.lxq.personalpractice.activity.ScrollingActivity;
+import com.lxq.personalpractice.activity.ToolbarActivity;
 import com.lxq.personalpractice.base.BaseActivity;
 import com.lxq.personalpractice.service.DownloadService;
 import com.lxq.personalpractice.utils.UpdateManager;
 import com.lxq.personalpractice.utils.UpdateManager.UpdateDownloadListener;
+
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * @author Created by lxq on 2017/12/18.
  */
 public class MainActivity extends BaseActivity {
-
 
     public static final String downloadUrl = "https://wap.58coin.com/58COIN_V1.0.0_20171208.apk";
     //public static final String downloadUrl = "http://www.izis.cn/mygoedu/yztv_1.apk";
@@ -33,9 +38,11 @@ public class MainActivity extends BaseActivity {
 
     private ProgressBar pbDownload;
     private TextView tvProgress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         checkPermission();
     }
@@ -47,6 +54,16 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+    }
+
+    @OnClick ( R.id.btnScroll )
+    public void scroll() {
+        startActivity(new Intent(MainActivity.this, ScrollingActivity.class));
+    }
+
+    @OnClick ( R.id.btnTool )
+    public void tool() {
+        startActivity(new Intent(MainActivity.this, ToolbarActivity.class));
     }
 
     @OnClick ( R.id.btnForce )

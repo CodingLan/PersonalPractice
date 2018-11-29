@@ -1,4 +1,4 @@
-package com.lxq.personalpractice.View;
+package com.lxq.personalpractice.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
