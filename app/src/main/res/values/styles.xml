@@ -11,6 +11,20 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <!--从底部弹出activity，从底部收起-->
+    <style name="BottomInAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_bottom_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_bottom_out</item>
+
+
+       <!-- <item name="android:activityCloseEnterAnimation">@anim/alpha</item>
+        <item name="android:activityOpenExitAnimation">@anim/alpha</item>-->
+    </style>
+
+    <style name="AppTheme.BottomIn" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/BottomInAnimation</item>
+    </style>
+
     <style name="collapsedAppBar" parent="@style/TextAppearance.AppCompat">
         <item name="android:textColor">@color/color_242C4D</item>
         <item name="android:textSize">@dimen/txt_16</item>

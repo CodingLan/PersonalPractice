@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -37,4 +38,30 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="Scroll" />
+
+    <Button
+        android:id="@+id/toFirst"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_centerVertical="true"
+        android:text="跳转" />
+
+    <Button
+        android:id="@+id/moveView"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="30dp"
+        android:text="View移动" />
+
+    <com.lxq.personalpractice.view.CustomProportionView
+        android:id="@+id/proportionView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moveView"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        app:barHeight="15dp"
+        app:squareHeight="10dp"
+        app:textSize="10sp" />
 </RelativeLayout>

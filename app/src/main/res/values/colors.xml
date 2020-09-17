@@ -9,4 +9,12 @@
     <color name="white">#ffffff</color>
 
     <color name="color_242C4D">#242C4D</color>
+
+    <color name="user_color_1">#5C57FF</color>
+    <color name="user_color_2">#4FC8FF</color>
+    <color name="user_color_3">#2FDBB4</color>
+    <color name="user_color_4">#FCE44D</color>
+    <color name="user_color_5">#F85A5A</color>
+
+    <color name="color_text">#697B9C</color>
 </resources>

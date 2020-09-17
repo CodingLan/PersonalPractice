@@ -5,4 +5,11 @@
         <attr name="lineColor" format="color" />
         <attr name="pointColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="CustomProportionView">
+        <attr name="barHeight" format="dimension" />
+        <attr name="squareHeight" format="dimension" />
+        <attr name="textSize" format="dimension" />
+
+    </declare-styleable>
 </resources>

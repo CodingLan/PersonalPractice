@@ -14,12 +14,21 @@ import android.widget.TextView;
 
 import butterknife.OnClick;
 
+import com.lxq.personalpractice.Bean.ProportionItem;
+import com.lxq.personalpractice.activity.FirstActivity;
+import com.lxq.personalpractice.activity.LayoutMoveActvity;
 import com.lxq.personalpractice.activity.ScrollingActivity;
 import com.lxq.personalpractice.activity.ToolbarActivity;
 import com.lxq.personalpractice.base.BaseActivity;
 import com.lxq.personalpractice.service.DownloadService;
 import com.lxq.personalpractice.utils.UpdateManager;
 import com.lxq.personalpractice.utils.UpdateManager.UpdateDownloadListener;
+import com.lxq.personalpractice.view.CustomProportionView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -39,12 +48,31 @@ public class MainActivity extends BaseActivity {
     private ProgressBar pbDownload;
     private TextView tvProgress;
 
+    private CustomProportionView proportionView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ConcurrentHashMap ss = new ConcurrentHashMap();
 
-
+        HashMap<Boolean, String> map = new HashMap();
         checkPermission();
+
+        proportionView = findViewById(R.id.proportionView);
+
+        initData();
+    }
+
+    private void initData() {
+        List<ProportionItem> data = new ArrayList<>();
+        data.add(new ProportionItem("BTC", 0.3f));
+        data.add(new ProportionItem("ETC", 0.25f));
+        data.add(new ProportionItem("ETH", 0.2f));
+        data.add(new ProportionItem("LTC", 0.15f));
+        data.add(new ProportionItem("EOS", 0.04f));
+        data.add(new ProportionItem("TRX", 0.03f));
+        data.add(new ProportionItem("RUFF", 0.03f));
+        proportionView.updateData(data);
     }
 
     @Override
@@ -54,6 +82,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+    }
+
+    @OnClick ( R.id.moveView )
+    public void move() {
+        startActivity(new Intent(MainActivity.this, LayoutMoveActvity.class));
     }
 
     @OnClick ( R.id.btnScroll )
@@ -82,6 +115,13 @@ public class MainActivity extends BaseActivity {
             String[] strings = new String[] {permission.WRITE_EXTERNAL_STORAGE};
             requestPermissions(strings, 1);
         }
+    }
+
+    @OnClick ( R.id.toFirst )
+    public void gotoFirst(View v) {
+        startActivity(new Intent(MainActivity.this, FirstActivity.class));
+
+        overridePendingTransition(R.anim.in_from_right, R.anim.alpha);
     }
 
     @Override

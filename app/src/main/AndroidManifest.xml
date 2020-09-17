@@ -27,7 +27,7 @@
         <activity android:name=".ui.NestActivity">
 
         </activity>
-        <activity android:name=".activity.ToolbarActivity" >
+        <activity android:name=".activity.ToolbarActivity">
             <!-- <intent-filter>
                  <action android:name="android.intent.action.MAIN" />
 
@@ -44,6 +44,10 @@
                    <category android:name="android.intent.category.LAUNCHER" />
                </intent-filter>-->
         </activity>
+
+        <activity android:name=".activity.FirstActivity" />
+        <activity android:name=".activity.SecondActivity" />
+        <activity android:name=".activity.LayoutMoveActvity" />
     </application>
 
 </manifest>
